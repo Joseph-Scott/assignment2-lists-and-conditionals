@@ -4,6 +4,14 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    userInput: ''
+  }
+
+  inputChangedHandler = (event) => {
+    this.setState({userInput: event.target.value});
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,13 +25,11 @@ class App extends Component {
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
         <hr />
-        <input
-          type="text"
-          onChange={this.inputChangedHandler}
+        <input 
+          type="text" 
+          onChange={this.inputChangedHandler} 
           value={this.state.userInput} />
-        <p>{this.state.userInput}</p>
-        <Validation inputLength={this.state.userInput.length} />
-        {charList}
+          <p>{this.state.userInput} </p>
       </div>
     );
   }
